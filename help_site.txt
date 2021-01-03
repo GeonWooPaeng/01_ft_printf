@@ -1,0 +1,7 @@
+
+
+- 가변 인자
+https://jhnyang.tistory.com/293
+
+- printf 세부 설명
+https://yeosong1.github.io/printf-%ED%8F%AC%EB%A7%B7-%EC%8A%A4%ED%8A%B8%EB%A7%81
