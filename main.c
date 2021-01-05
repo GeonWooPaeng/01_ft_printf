@@ -27,6 +27,11 @@ int main()
 {
 	// ft_printn("ddd","ad","ag","sdgsdg");
 	// ft_printn("ddd","ad","ag","sdgsdg");
-	printf(">> %i\n",0011);
-	printf(">> %d\n",011);
+	
+	// %c
+	ft_printf(">> [%-4c]\n",'c');
+	ft_printf(">> [%-c]\n",'c');
+	ft_printf(">> [%-*c]\n",-3,'c');
+	ft_printf(">> [%5c]\n",'c');
+	ft_printf(">> [%*c]\n",0,'c');
 }
