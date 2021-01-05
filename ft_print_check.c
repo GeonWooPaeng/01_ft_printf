@@ -16,8 +16,8 @@ void ft_print_check(va_list ap, t_foption *foption)
 {
 	if (foption->type == 'c')
 		foption->print_len += ft_print_c(ap, foption);
-	// else if (foption->type == 's')
-	// 	print_cnt += ft_print_s();
+	else if (foption->type == 's')
+		foption->print_len += ft_print_s();
 	// else if (foption->type == 'p')
 	// 	print_cnt += ft_print_p();
 	// else if (foption->type == 'd')
