@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/04 14:17:31 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/05 16:25:11 by gpaeng           ###   ########.fr       */
+/*   Created: 2021/01/04 20:17:32 by gpaeng            #+#    #+#             */
+/*   Updated: 2021/01/04 21:27:51 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdarg.h>
-
-typedef struct	s_format_option
+void	ft_putchar(char c)
 {
-	int minus_flag;
-	int zero_flag;
-	int width;
-	int dot;
-	int precision_n;
-	int type;
-}				t_foption;
-
-void ft_option_cal(va_list ap, char **str, t_foption *foption, int *print_cnt);
-void	ft_putchar(char c);
-#endif
+	write(1, &c, 1);
+}
