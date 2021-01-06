@@ -15,13 +15,13 @@
 void ft_print_check(va_list ap, t_foption *foption)
 {
 	if (foption->type == 'c')
-		foption->print_len += ft_print_c(ap, foption);
+		ft_print_c(ap, foption);
 	else if (foption->type == 's')
-		foption->print_len += ft_print_s();
+		ft_print_s(ap, foption);
 	// else if (foption->type == 'p')
 	// 	print_cnt += ft_print_p();
-	// else if (foption->type == 'd')
-	// 	print_cnt += ft_print_d();
+	else if (foption->type == 'd')
+		ft_print_d();
 	// else if (foption->type == 'i')
 	// 	print_cnt += ft_print_i();
 	// else if (foption->type == 'u')
@@ -31,5 +31,5 @@ void ft_print_check(va_list ap, t_foption *foption)
 	// else if (foption->type == 'X')
 	// 	print_cnt += ft_print_X();
 	// else
-	// 	print_cnt += ft_print_percent();
+	// 	ft_print_c(ap, foption);
 }
