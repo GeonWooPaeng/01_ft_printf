@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_d.c                                       :+:      :+:    :+:   */
+/*   ft_print_i.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/06 17:12:01 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/08 16:49:37 by gpaeng           ###   ########.fr       */
+/*   Created: 2021/01/08 14:37:29 by gpaeng            #+#    #+#             */
+/*   Updated: 2021/01/08 16:49:19 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void ft_dnspace(long long num, t_fopt *fopt)
+static void ft_inspace(long long num, t_fopt *fopt)
 {
 	if (num == 0 && fopt->dot && fopt->nprec < 1)
 		return ;
 	if (num > 9)
-		ft_dnspace(num / 10, fopt);
+		ft_inspace(num / 10, fopt);
 	ft_putchar(num % 10 + '0', fopt);
 }
 
-static int ft_dlen(long long num, t_fopt *fopt)
+static int ft_ilen(long long num, t_fopt *fopt)
 {
 	int cnt;
 
@@ -38,7 +38,7 @@ static int ft_dlen(long long num, t_fopt *fopt)
 	return (cnt);
 }
 
-static void ft_dspace(t_fopt *fopt, int num, int *nlen)
+static void ft_ispace(t_fopt *fopt, int num, int *nlen)
 {
 	int space;
 
@@ -54,7 +54,7 @@ static void ft_dspace(t_fopt *fopt, int num, int *nlen)
 		ft_putchar(' ', fopt);
 }
 
-static void ft_dzero(t_fopt *fopt, int *nlen)
+static void ft_izero(t_fopt *fopt, int *nlen)
 {
 	int zlen;
 
@@ -66,17 +66,17 @@ static void ft_dzero(t_fopt *fopt, int *nlen)
 		ft_putchar('0', fopt);
 }
 
-void ft_print_d(va_list ap, t_fopt *fopt)
+void ft_print_i(va_list ap, t_fopt *fopt)
 {
 	int num;
 	int nlen;
 
 	num = va_arg(ap, int);
-	nlen = (num < 0) ? ft_dlen(-num, fopt) : ft_dlen(num, fopt);
-	(fopt->fminus) ? 0 : ft_dspace(fopt, num, &nlen);
+	nlen = (num < 0) ? ft_ilen(-num, fopt) : ft_ilen(num, fopt);
+	(fopt->fminus) ? 0 : ft_ispace(fopt, num, &nlen);
 	num < 0 ? ft_putchar('-', fopt) : 0;
-	ft_dzero(fopt, &nlen);
-	num < 0 ? ft_dnspace(-num, fopt) : ft_dnspace(num, fopt);
+	ft_izero(fopt, &nlen);
+	num < 0 ? ft_inspace(-num, fopt) : ft_inspace(num, fopt);
 	fopt->fminus = (fopt->fminus) ? 0 : 1;
-	(fopt->fminus) ? 0 : ft_dspace(fopt, num, &nlen);
+	(fopt->fminus) ? 0 : ft_ispace(fopt, num, &nlen);
 }

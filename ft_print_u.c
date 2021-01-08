@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_print_u.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/04 20:17:32 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/08 15:53:02 by gpaeng           ###   ########.fr       */
+/*   Created: 2021/01/08 16:40:36 by gpaeng            #+#    #+#             */
+/*   Updated: 2021/01/08 16:55:09 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void ft_init_foption(t_fopt *fopt)
+static void ft_uspace(t_fopt *fopt, unsigned int num)
 {
-	fopt->fminus = 0;
-	fopt->fzero = 0;
-	fopt->width = 0;
-	fopt->dot = 0;
-	fopt->nprec = 0;
-	fopt->type = 0;
-	fopt->lprint = 0;
+	unsigned int space;
+
+	if (fopt->fzero && !fopt->dot && fopt->dot < 1)
+		space = 
 }
 
-void	ft_putchar(char c, t_fopt *fopt)
+void ft_print_u(va_list ap, t_fopt *fopt)
 {
-	write(1, &c, 1);
-	fopt->lprint += 1;
+	unsigned int num;
+
+	num = va_arg(ap, unsigned int);
+	fopt->fminus ? 0 : ft_uspace();
+	ft_uzero();
+	ft_unspace();
+	fopt->fminus = fopt->fminus ? 0 : 1;
+	fopt->fminus ? 0 : ft_uspace();
 }
-
-int ft_strlen(char *str)
-{
-	int idx;
-
-	idx = 0;
-	while(str[idx])
-	{
-		idx++;
-	}
-	return (idx);
-}
-

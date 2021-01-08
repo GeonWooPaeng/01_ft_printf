@@ -12,24 +12,24 @@
 
 #include "ft_printf.h"
 
-void ft_print_check(va_list ap, t_foption *foption)
+void ft_print_check(va_list ap, t_fopt *fopt)
 {
-	if (foption->type == 'c')
-		ft_print_c(ap, foption);
-	else if (foption->type == 's')
-		ft_print_s(ap, foption);
-	// else if (foption->type == 'p')
+	if (fopt->type == 'c')
+		ft_print_c(ap, fopt);
+	else if (fopt->type == 's')
+		ft_print_s(ap, fopt);
+	// else if (fopt->type == 'p')
 	// 	print_cnt += ft_print_p();
-	else if (foption->type == 'd')
-		ft_print_d(ap, foption);
-	// else if (foption->type == 'i')
-	// 	ft_print_i(ap, foption);
-	// else if (foption->type == 'u')
-	// 	print_cnt += ft_print_u();
-	// else if (foption->type == 'x')
+	else if (fopt->type == 'd')
+		ft_print_d(ap, fopt);
+	else if (fopt->type == 'i')
+		ft_print_i(ap, fopt);
+	else if (fopt->type == 'u')
+		ft_print_u(ap, fopt);
+	// else if (fopt->type == 'x')
 	// 	print_cnt += ft_print_x();
-	// else if (foption->type == 'X')
+	// else if (fopt->type == 'X')
 	// 	print_cnt += ft_print_X();
 	// else
-	// 	ft_print_c(ap, foption);
+	// 	ft_print_c(ap, fopt);
 }
