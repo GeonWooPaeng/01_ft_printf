@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 20:17:32 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/06 15:50:13 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/08 14:32:52 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ void ft_init_foption(t_foption *foption)
 	foption->print_len = 0;
 }
 
-void	ft_putchar(char c)
+void	ft_putchar(char c, t_foption *foption)
 {
 	write(1, &c, 1);
+	foption->print_len += 1;
 }
 
 int ft_strlen(char *str)

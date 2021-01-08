@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:17:10 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/05 21:49:18 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/08 14:35:23 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ int ft_printf(const char *str, ...)
 			}
 		else
 		{
-			ft_putchar(*strptr);
-			foption.print_len += 1;
+			ft_putchar(*strptr, &foption);
 			strptr++;
 		}
 	}

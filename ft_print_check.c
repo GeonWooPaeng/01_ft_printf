@@ -21,9 +21,9 @@ void ft_print_check(va_list ap, t_foption *foption)
 	// else if (foption->type == 'p')
 	// 	print_cnt += ft_print_p();
 	else if (foption->type == 'd')
-		ft_print_d();
+		ft_print_d(ap, foption);
 	// else if (foption->type == 'i')
-	// 	print_cnt += ft_print_i();
+	// 	ft_print_i(ap, foption);
 	// else if (foption->type == 'u')
 	// 	print_cnt += ft_print_u();
 	// else if (foption->type == 'x')

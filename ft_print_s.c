@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 21:50:52 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/06 16:53:22 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/08 14:33:29 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ static void ft_putstr(char *str, t_foption *foption)
 	if (foption->precision_n)
 	{
 		while (str[idx] && idx < foption->precision_n)
-			ft_putchar(str[idx++]);
+			ft_putchar(str[idx++], foption);
 	}
 	else
 	{
 		while (str[idx])
-			ft_putchar(str[idx++]);
+			ft_putchar(str[idx++], foption);
 	}
 }
 
@@ -49,10 +49,7 @@ static void ft_sspace(t_foption *foption, char *str)
 	else
 		foption->width = foption->width - ft_strlen(str);
 	while (foption->width-- > 0)
-	{
-		ft_putchar(' ');
-		foption->print_len += 1;
-	}
+		ft_putchar(' ', foption);
 }
 
 void ft_print_s(va_list ap, t_foption *foption)
