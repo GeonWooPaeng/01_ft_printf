@@ -18,8 +18,8 @@ void	ft_print_check(va_list ap, t_fopt *fopt)
 		ft_print_c(ap, fopt);
 	else if (fopt->type == 's')
 		ft_print_s(ap, fopt);
-	// else if (fopt->type == 'p')
-	// 	ft_print_p();
+	else if (fopt->type == 'p')
+		ft_print_p(ap, fopt);
 	else if (fopt->type == 'd')
 		ft_print_d(ap, fopt);
 	else if (fopt->type == 'i')
@@ -31,5 +31,5 @@ void	ft_print_check(va_list ap, t_fopt *fopt)
 	else if (fopt->type == 'X')
 		ft_print_bx(ap, fopt);
 	// else
-	// 	ft_print_c(ap, fopt);
+	// 	ft_print_per(ap, fopt);
 }

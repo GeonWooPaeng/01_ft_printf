@@ -373,4 +373,43 @@ int main()
 	// ft_printf("[%03x]\n", 0);
 	// ft_printf("[%.x]\n", 0);
 	// ft_printf("[%.3x]\n", 0);
+
+	//%p
+
+	// char *ptr = "aaa";
+	// char *void_ptr = "ccc";
+
+	// printf("[%p]\n", ptr);
+	// printf("[%p]\n", void_ptr);
+	// printf("[%p]\n", NULL);
+	// printf("[%5p]\n", ptr);
+	// printf("[%10p]\n", ptr);
+	// printf("[%15p]\n", ptr);
+	// printf("[%-15p]\n", ptr);
+	// printf("[%-p]\n", ptr);
+	// printf("[%*p]\n", 15, ptr);
+	// printf("[%*p]\n", -15, ptr);
+	// printf("[%.p]\n", ptr);
+	// printf("[%.p]\n", void_ptr);
+	// printf("[%.p]\n", NULL);
+	// printf("[%.0p]\n", ptr);//undefined behavior warning: precision used with 'p'
+	// printf("[%.5p]\n", ptr);//undefined behavior warning: precision used with 'p'
+	// printf("[%0p]\n", ptr);//undefined behavior warning: flag '0' with 'p'
+	// printf("[% p]\n", ptr);//undefined behavior warning: flag ' ' with 'p'
+
+	printf("-----------------------\n");
+	char *ptr = "aaa";
+	char *void_ptr = "ccc";
+
+	ft_printf("[%p]\n", ptr);
+	ft_printf("[%p]\n", void_ptr);
+	// ft_printf("[%p]\n", NULL);
+	ft_printf("[%5p]\n", ptr);
+	ft_printf("[%10p]\n", ptr);
+	ft_printf("[%15p]\n", ptr);
+	ft_printf("[%-15p]\n", ptr);
+	ft_printf("[%-p]\n", ptr);
+	ft_printf("[%*p]\n", 15, ptr);
+	ft_printf("[%*p]\n", -15, ptr);
+
 }
