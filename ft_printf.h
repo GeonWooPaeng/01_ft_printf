@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:17:31 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/08 15:53:41 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/09 16:52:45 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,9 @@ int		ft_strlen(char *str);
 void	ft_print_c(va_list ap, t_fopt *fopt);
 void	ft_print_s(va_list ap, t_fopt *fopt);
 void	ft_print_d(va_list ap, t_fopt *fopt);
+void	ft_print_i(va_list ap, t_fopt *fopt);
+void	ft_print_u(va_list ap, t_fopt *fopt);
+void	ft_print_x(va_list ap, t_fopt *fopt);
+void	ft_print_bx(va_list ap, t_fopt *fopt);
+
 #endif

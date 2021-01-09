@@ -25,8 +25,6 @@
 
 int main()
 {
-	// ft_printn("ddd","ad","ag","sdgsdg");
-	// ft_printn("ddd","ad","ag","sdgsdg");
 	
 	// %c
 	// printf("[%c]\n", 'a');
@@ -248,4 +246,131 @@ int main()
 	// printf("[%+09.7d]\n", -12345);
 	// printf("[%+07.9d]\n", -12345);
 	// printf("[%#d]\n", 0);//ndefined behavior warning: flag '#' with 'd'
+
+	// %u
+	// printf("[%u]\n", 12345);
+	// printf("[%u]\n", -12345);
+	// printf("[%3u]\n", 12345);
+	// printf("[%7u]\n", 12345);
+	// printf("[%-7u]\n", 12345);
+	// printf("[%-u]\n", 12345);
+	// printf("[%*u]\n", 7, 12345);
+	// printf("[%*u]\n", -7, 12345);
+	// printf("[%.u]\n", 12345);
+	// printf("[%.0u]\n", 12345);
+	// printf("[%.3u]\n", 12345);
+	// printf("[%.7u]\n", 12345);
+	// printf("[%-.7u]\n", 12345);
+	// printf("[%-10.7u]\n", 12345);
+	// printf("[%9.7u]\n", 12345);
+	// printf("[%-7.9u]\n", 12345);
+	// printf("[%-3.7u]\n", 12345);
+	// printf("[%-7.3u]\n", 12345);
+	// printf("[%.3u]\n", -12345);
+	// printf("[%.7u]\n", -12345);
+	// printf("[%-.7u]\n", -12345);
+	// printf("[%-9.7u]\n", -12345);
+	// printf("[%-7.9u]\n", -12345);
+	// printf("[%-3.7u]\n", -12345);
+	// printf("[%-7.3u]\n", -12345);
+	// printf("[%0u]\n", 12345);
+	// printf("[%07u]\n", 12345);
+	// printf("[%u]\n", 0);
+	// printf("[%3u]\n", 0);
+	// printf("[%3.u]\n", 0);
+	// printf("[%03u]\n", 0);
+	// printf("[%.u]\n", 0);
+	// printf("[%.3u]\n", 0);
+	// printf("[%09.0u]\n", 12345);
+	// printf("[%09.7u]\n", 12345);
+	// printf("[%07.9u]\n", 12345);
+	// // printf("[% u]\n", 12345); //undefined behaviour warning : flag ' ' with 'u'
+	// // printf("[%+u]\n", 12345); //undefined behaviour warning : flag '+' with 'u'
+	// // printf("[%#u]\n", 0); //undefined behavior warning: flag '#' with 'u'
+
+	// printf("----------------------\n");
+	// ft_printf("[%u]\n", 12345);
+	// ft_printf("[%u]\n", -12345);
+	// ft_printf("[%3u]\n", 12345);
+	// ft_printf("[%7u]\n", 12345);
+	// ft_printf("[%-7u]\n", 12345);
+	// ft_printf("[%-u]\n", 12345);
+	// ft_printf("[%*u]\n", 7, 12345);
+	// ft_printf("[%*u]\n", -7, 12345);
+	// ft_printf("[%.u]\n", 12345);
+	// ft_printf("[%.0u]\n", 12345);
+	// ft_printf("[%.3u]\n", 12345);
+	// ft_printf("[%.7u]\n", 12345);
+	// ft_printf("[%-.7u]\n", 12345);
+	// ft_printf("[%-10.7u]\n", 12345);
+	// ft_printf("[%9.7u]\n", 12345);
+	// ft_printf("[%-7.9u]\n", 12345);
+	// ft_printf("[%-3.7u]\n", 12345);
+	// ft_printf("[%-7.3u]\n", 12345);
+	// ft_printf("[%.3u]\n", -12345);
+	// ft_printf("[%.7u]\n", -12345);
+	// ft_printf("[%-.7u]\n", -12345);
+	// ft_printf("[%-9.7u]\n", -12345);
+	// ft_printf("[%-7.9u]\n", -12345);
+	// ft_printf("[%-3.7u]\n", -12345);
+	// ft_printf("[%-7.3u]\n", -12345);
+	// ft_printf("[%0u]\n", 12345);
+	// ft_printf("[%07u]\n", 12345);
+	// ft_printf("[%u]\n", 0);
+	// ft_printf("[%3u]\n", 0);
+	// ft_printf("[%3.u]\n", 0);
+	// ft_printf("[%03u]\n", 0);
+	// ft_printf("[%.u]\n", 0);
+	// ft_printf("[%.3u]\n", 0);
+	
+	// %x, X
+	// printf("[%x]\n", 768955);
+	// printf("[%x]\n", 4294967295u);
+	// printf("[%x]\n", -768955);
+	// printf("[%X]\n", 768955);
+	// printf("[%3x]\n", 768955);
+	// printf("[%7x]\n", 768955);
+	// printf("[%-7x]\n", 768955);
+	// printf("[%-x]\n", 768955);
+	// printf("[%*x]\n", 7, 768955);
+	// printf("[%*x]\n", -7, 768955);
+	// printf("[%.x]\n", 768955);
+	// printf("[%.0x]\n", 768955);
+	// printf("[%.3x]\n", 768955);
+	// printf("[%.7x]\n", 768955);
+	// printf("[%-.7x]\n", 768955);
+	// printf("[%0x]\n", 768955);
+	// printf("[%07x]\n", 768955);
+	// printf("[%x]\n", 0);
+	// printf("[%3x]\n", 0);
+	// printf("[%3.x]\n", 0);
+	// printf("[%03x]\n", 0);
+	// printf("[%.x]\n", 0);
+	// printf("[%.3x]\n", 0);
+
+	// printf("------------------------\n");
+
+	// ft_printf("[%x]\n", 768955);
+	// ft_printf("[%x]\n", 4294967295u);
+	// ft_printf("[%x]\n", -768955);
+	// ft_printf("[%X]\n", 768955);
+	// ft_printf("[%3x]\n", 768955);
+	// ft_printf("[%7x]\n", 768955);
+	// ft_printf("[%-7x]\n", 768955);
+	// ft_printf("[%-x]\n", 768955);
+	// ft_printf("[%*x]\n", 7, 768955);
+	// ft_printf("[%*x]\n", -7, 768955);
+	// ft_printf("[%.x]\n", 768955);
+	// ft_printf("[%.0x]\n", 768955);
+	// ft_printf("[%.3x]\n", 768955);
+	// ft_printf("[%.7x]\n", 768955);
+	// ft_printf("[%-.7x]\n", 768955);
+	// ft_printf("[%0x]\n", 768955);
+	// ft_printf("[%07x]\n", 768955);
+	// ft_printf("[%x]\n", 0);
+	// ft_printf("[%3x]\n", 0);
+	// ft_printf("[%3.x]\n", 0);
+	// ft_printf("[%03x]\n", 0);
+	// ft_printf("[%.x]\n", 0);
+	// ft_printf("[%.3x]\n", 0);
 }

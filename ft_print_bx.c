@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_i.c                                       :+:      :+:    :+:   */
+/*   ft_print_bx.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/08 14:37:29 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/09 14:39:41 by gpaeng           ###   ########.fr       */
+/*   Created: 2021/01/09 16:50:21 by gpaeng            #+#    #+#             */
+/*   Updated: 2021/01/09 17:33:29 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void ft_inspace(long long num, t_fopt *fopt)
-{
-	if (num == 0 && fopt->dot && fopt->nprec < 1)
-		return ;
-	if (num > 9)
-		ft_inspace(num / 10, fopt);
-	ft_putchar(num % 10 + '0', fopt);
-}
-
-static int ft_ilen(long long num, t_fopt *fopt)
+static int ft_bxlen(t_fopt *fopt, unsigned int num)
 {
 	int cnt;
 
@@ -32,29 +23,27 @@ static int ft_ilen(long long num, t_fopt *fopt)
 		return (1);
 	while (num > 0)
 	{
-		num /= 10;
+		num /= 16;
 		cnt += 1;
 	}
 	return (cnt);
 }
 
-static void ft_ispace(t_fopt *fopt, int num, int *nlen)
+static void ft_bxspace(t_fopt *fopt, int *nlen)
 {
 	int space;
 
-	space = 0;
-	if (fopt->dot && !fopt->fzero && fopt->nprec > *nlen) //zero가 있는 곳
+	if (!fopt->fzero && fopt->dot && fopt->nprec > *nlen)
 		space = fopt->width - fopt->nprec;
 	else
 		space = fopt->width - *nlen;
-	space = num < 0 ? space - 1: space;
 	if (fopt->fzero && !fopt->dot && fopt->nprec < 1)
 		space = 0;
 	while (space-- > 0)
 		ft_putchar(' ', fopt);
 }
 
-static void ft_izero(t_fopt *fopt, int *nlen)
+static void ft_bxzero(t_fopt *fopt, int *nlen)
 {
 	int zlen;
 
@@ -66,17 +55,28 @@ static void ft_izero(t_fopt *fopt, int *nlen)
 		ft_putchar('0', fopt);
 }
 
-void ft_print_i(va_list ap, t_fopt *fopt)
+static void ft_bxnspace(t_fopt *fopt, unsigned int num, int *nlen)
 {
-	int num;
-	int nlen;
+	char *base;
 
-	num = va_arg(ap, int);
-	nlen = (num < 0) ? ft_ilen(-num, fopt) : ft_ilen(num, fopt);
-	(fopt->fminus) ? 0 : ft_ispace(fopt, num, &nlen);
-	num < 0 ? ft_putchar('-', fopt) : 0;
-	ft_izero(fopt, &nlen);
-	num < 0 ? ft_inspace(-num, fopt) : ft_inspace(num, fopt);
-	fopt->fminus = (fopt->fminus) ? 0 : 1;
-	(fopt->fminus) ? 0 : ft_ispace(fopt, num, &nlen);
+	base = "0123456789ABCDEF";
+	if (num == 0 && fopt->dot && fopt->nprec < 1)
+		return ;
+	if (num > 15)
+		ft_bxnspace(fopt, num / 16, nlen);
+	ft_putchar(base[num % 16], fopt);
+}
+
+void ft_print_bx(va_list ap, t_fopt *fopt)
+{
+	unsigned int	num;
+	int				nlen;
+
+	num = va_arg(ap, unsigned int);
+	nlen = ft_bxlen(fopt, num);
+	fopt->fminus ? 0 : ft_bxspace(fopt, &nlen);
+	ft_bxzero(fopt, &nlen);
+	ft_bxnspace(fopt, num, &nlen);
+	fopt->fminus = fopt->fminus ? 0 : 1;
+	fopt->fminus ? 0 : ft_bxspace(fopt, &nlen);
 }

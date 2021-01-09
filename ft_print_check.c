@@ -26,10 +26,10 @@ void ft_print_check(va_list ap, t_fopt *fopt)
 		ft_print_i(ap, fopt);
 	else if (fopt->type == 'u')
 		ft_print_u(ap, fopt);
-	// else if (fopt->type == 'x')
-	// 	print_cnt += ft_print_x();
-	// else if (fopt->type == 'X')
-	// 	print_cnt += ft_print_X();
+	else if (fopt->type == 'x')
+		ft_print_x(ap, fopt);
+	else if (fopt->type == 'X')
+		ft_print_bx(ap, fopt);
 	// else
 	// 	ft_print_c(ap, fopt);
 }

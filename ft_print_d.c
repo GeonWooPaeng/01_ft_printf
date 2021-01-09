@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 17:12:01 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/08 16:49:37 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/09 14:39:29 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ static int ft_dlen(long long num, t_fopt *fopt)
 	int cnt;
 
 	cnt = 0;
-	if (num == 0)
-		return (1);
 	if (num == 0 && fopt->dot && fopt->nprec < 1)
 		return (0);
+	if (num == 0)
+		return (1);
 	while (num > 0)
 	{
 		num /= 10;
@@ -43,13 +43,13 @@ static void ft_dspace(t_fopt *fopt, int num, int *nlen)
 	int space;
 
 	space = 0;
-	if (fopt->nprec > *nlen) //zero가 있는 곳
+	if (fopt->dot && !fopt->fzero && fopt->nprec > *nlen) //zero가 있는 곳
 		space = fopt->width - fopt->nprec;
 	else
 		space = fopt->width - *nlen;
 	space = num < 0 ? space - 1: space;
 	if (fopt->fzero && !fopt->dot && fopt->nprec < 1)
-		space -= fopt->width - *nlen;
+		space = 0;
 	while (space-- > 0)
 		ft_putchar(' ', fopt);
 }
