@@ -6,13 +6,13 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 20:52:59 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/08 15:52:34 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/09 17:45:46 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void ft_flag(char **str, t_fopt *fopt)
+static void	ft_flag(char **str, t_fopt *fopt)
 {
 	while (**str == '-' || **str == '0')
 	{
@@ -26,7 +26,7 @@ static void ft_flag(char **str, t_fopt *fopt)
 		fopt->fzero = 0;
 }
 
-static void ft_width(va_list ap, char **str, t_fopt *fopt)
+static void	ft_width(va_list ap, char **str, t_fopt *fopt)
 {
 	if (**str == '*')
 	{
@@ -46,7 +46,7 @@ static void ft_width(va_list ap, char **str, t_fopt *fopt)
 	}
 }
 
-static void ft_precision(va_list ap, char **str, t_fopt *fopt)
+static void	ft_precision(va_list ap, char **str, t_fopt *fopt)
 {
 	if (**str == '.')
 	{
@@ -67,7 +67,7 @@ static void ft_precision(va_list ap, char **str, t_fopt *fopt)
 	}
 }
 
-static void ft_type(char **str, t_fopt *fopt)
+static void	ft_type(char **str, t_fopt *fopt)
 {
 	if (**str == 'c' || **str == 's' || **str == 'p' 
 	|| **str == 'd' || **str == 'i' || **str == 'u' 
@@ -76,7 +76,7 @@ static void ft_type(char **str, t_fopt *fopt)
 	(*str)++;
 }
 
-void ft_option_cal(va_list ap, char **str, t_fopt *fopt)
+void		ft_option_cal(va_list ap, char **str, t_fopt *fopt)
 {
 	++(*str);
 	if (**str == ' ')

@@ -6,13 +6,13 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:40:36 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/09 14:42:16 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/09 17:48:44 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int ft_ulen(t_fopt *fopt, unsigned int num)
+static int	ft_ulen(t_fopt *fopt, unsigned int num)
 {
 	int cnt;
 
@@ -29,7 +29,7 @@ static int ft_ulen(t_fopt *fopt, unsigned int num)
 	return (cnt);
 }
 
-static void ft_uspace(t_fopt *fopt, int *nlen)
+static void	ft_uspace(t_fopt *fopt, int *nlen)
 {
 	int space;
 
@@ -43,7 +43,7 @@ static void ft_uspace(t_fopt *fopt, int *nlen)
 		ft_putchar(' ', fopt);
 }
 
-static void ft_uzero(t_fopt *fopt, int *nlen)
+static void	ft_uzero(t_fopt *fopt, int *nlen)
 {
 	int zlen;
 
@@ -55,7 +55,7 @@ static void ft_uzero(t_fopt *fopt, int *nlen)
 		ft_putchar('0', fopt);
 }
 
-static void ft_unspace(t_fopt *fopt, unsigned num)
+static void	ft_unspace(t_fopt *fopt, unsigned num)
 {
 	if (num == 0 && fopt->dot && fopt->nprec < 1)
 		return ;
@@ -64,7 +64,7 @@ static void ft_unspace(t_fopt *fopt, unsigned num)
 	ft_putchar(num % 10 + '0', fopt);
 }
 
-void ft_print_u(va_list ap, t_fopt *fopt)
+void		ft_print_u(va_list ap, t_fopt *fopt)
 {
 	unsigned int	num;
 	int				nlen;

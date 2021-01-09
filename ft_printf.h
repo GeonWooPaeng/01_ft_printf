@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:17:31 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/09 16:52:45 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/09 17:49:48 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		ft_printf(const char *str, ...);
 void	ft_option_cal(va_list ap, char **str, t_fopt *fopt);
 void	ft_print_check(va_list ap, t_fopt *fopt);
 
-// util
+// utils
 void	ft_putchar(char c, t_fopt *fopt);
 void	ft_init_foption(t_fopt *fopt);
 int		ft_strlen(char *str);

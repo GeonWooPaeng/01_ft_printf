@@ -12,14 +12,14 @@
 
 #include "ft_printf.h"
 
-void ft_print_check(va_list ap, t_fopt *fopt)
+void	ft_print_check(va_list ap, t_fopt *fopt)
 {
 	if (fopt->type == 'c')
 		ft_print_c(ap, fopt);
 	else if (fopt->type == 's')
 		ft_print_s(ap, fopt);
 	// else if (fopt->type == 'p')
-	// 	print_cnt += ft_print_p();
+	// 	ft_print_p();
 	else if (fopt->type == 'd')
 		ft_print_d(ap, fopt);
 	else if (fopt->type == 'i')

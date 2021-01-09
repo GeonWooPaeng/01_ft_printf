@@ -6,13 +6,13 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 21:50:52 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/08 15:52:57 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/09 17:45:10 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void ft_putstr(char *str, t_fopt *fopt)
+static void	ft_putstr(char *str, t_fopt *fopt)
 {
 	int idx;
 
@@ -31,17 +31,16 @@ static void ft_putstr(char *str, t_fopt *fopt)
 	}
 }
 
-static void ft_snspace(va_list ap, t_fopt *fopt, char *str)
+static void	ft_snspace(va_list ap, t_fopt *fopt, char *str)
 {
 	int len;
 	int idx;
 
 	len = ft_strlen(str);
 	ft_putstr(str, fopt);
-	fopt->fminus = 0;
 }
 
-static void ft_sspace(t_fopt *fopt, char *str)
+static void	ft_sspace(t_fopt *fopt, char *str)
 {
 	if (fopt->nprec > 0 && fopt->width > fopt->nprec)
 		fopt->width = fopt->width - fopt->nprec;
@@ -51,7 +50,7 @@ static void ft_sspace(t_fopt *fopt, char *str)
 		ft_putchar(' ', fopt);
 }
 
-void ft_print_s(va_list ap, t_fopt *fopt)
+void		ft_print_s(va_list ap, t_fopt *fopt)
 {
 	char *str;
 
@@ -60,5 +59,6 @@ void ft_print_s(va_list ap, t_fopt *fopt)
 		str = "(null)";
 	(fopt->fminus) ? 0 : ft_sspace(fopt, str);
 	ft_snspace(ap, fopt, str);
+	fopt->fminus = fopt->fminus ? 0 : 1;
 	(fopt->fminus) ? 0 : ft_sspace(fopt, str);
 }

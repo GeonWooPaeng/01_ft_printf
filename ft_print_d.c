@@ -6,13 +6,13 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 17:12:01 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/09 14:39:29 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/09 17:48:00 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void ft_dnspace(long long num, t_fopt *fopt)
+static void	ft_dnspace(long long num, t_fopt *fopt)
 {
 	if (num == 0 && fopt->dot && fopt->nprec < 1)
 		return ;
@@ -21,7 +21,7 @@ static void ft_dnspace(long long num, t_fopt *fopt)
 	ft_putchar(num % 10 + '0', fopt);
 }
 
-static int ft_dlen(long long num, t_fopt *fopt)
+static int	ft_dlen(long long num, t_fopt *fopt)
 {
 	int cnt;
 
@@ -38,7 +38,7 @@ static int ft_dlen(long long num, t_fopt *fopt)
 	return (cnt);
 }
 
-static void ft_dspace(t_fopt *fopt, int num, int *nlen)
+static void	ft_dspace(t_fopt *fopt, int num, int *nlen)
 {
 	int space;
 
@@ -54,7 +54,7 @@ static void ft_dspace(t_fopt *fopt, int num, int *nlen)
 		ft_putchar(' ', fopt);
 }
 
-static void ft_dzero(t_fopt *fopt, int *nlen)
+static void	ft_dzero(t_fopt *fopt, int *nlen)
 {
 	int zlen;
 
@@ -66,7 +66,7 @@ static void ft_dzero(t_fopt *fopt, int *nlen)
 		ft_putchar('0', fopt);
 }
 
-void ft_print_d(va_list ap, t_fopt *fopt)
+void		ft_print_d(va_list ap, t_fopt *fopt)
 {
 	int num;
 	int nlen;
