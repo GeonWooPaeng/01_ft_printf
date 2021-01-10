@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wextra -Werror -Wall 
 NAME = libftprintf.a
 
-SRCS = \
+SRCS =	\
 		ft_printf.c			\
 		ft_option.c			\
 		ft_print_check.c	\
@@ -15,14 +15,14 @@ SRCS = \
 		ft_print_per.c		\
 		ft_print_s.c		\
 		ft_print_u.c		\
-		ft_print_x.c		\
+		ft_print_x.c		
 		
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	ar rs $(NAME) $(OBJS)

@@ -6,13 +6,13 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 21:50:52 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/09 17:45:10 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/10 14:46:06 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_putstr(char *str, t_fopt *fopt)
+static void	ft_snspace(t_fopt *fopt, char *str)
 {
 	int idx;
 
@@ -29,15 +29,6 @@ static void	ft_putstr(char *str, t_fopt *fopt)
 		while (str[idx])
 			ft_putchar(str[idx++], fopt);
 	}
-}
-
-static void	ft_snspace(va_list ap, t_fopt *fopt, char *str)
-{
-	int len;
-	int idx;
-
-	len = ft_strlen(str);
-	ft_putstr(str, fopt);
 }
 
 static void	ft_sspace(t_fopt *fopt, char *str)
@@ -58,7 +49,7 @@ void		ft_print_s(va_list ap, t_fopt *fopt)
 	if (str == NULL)
 		str = "(null)";
 	(fopt->fminus) ? 0 : ft_sspace(fopt, str);
-	ft_snspace(ap, fopt, str);
+	ft_snspace(fopt, str);
 	fopt->fminus = fopt->fminus ? 0 : 1;
 	(fopt->fminus) ? 0 : ft_sspace(fopt, str);
 }

@@ -37,20 +37,20 @@ int main()
 	// printf("[%*c]\n", 5, 'a');
 	// printf("[%*c]\n", -5, 'a');
 
-	// ft_printf("[%c]\n", 'a');
-	// ft_printf("[%-c]\n", 'a');
-	// ft_printf("[%c]\n", '\0');
-	// ft_printf("[%5c]\n", '\0');
-	// ft_printf("[%-5c]\n", '\0');
-	// ft_printf("[%5c]\n", 'a');
-	// ft_printf("[%-5c]\n", 'a');
-	// ft_printf("[%*c]\n", 5, 'a');
-	// ft_printf("[%*c]\n", -5, 'a');
+	ft_printf("[%c]\n", 'a');
+	ft_printf("[%-c]\n", 'a');
+	ft_printf("[%c]\n", '\0');
+	ft_printf("[%5c]\n", '\0');
+	ft_printf("[%-5c]\n", '\0');
+	ft_printf("[%5c]\n", 'a');
+	ft_printf("[%-5c]\n", 'a');
+	ft_printf("[%*c]\n", 5, 'a');
+	ft_printf("[%*c]\n", -5, 'a');
 	
-	// ft_printf("%.c\n", 'a');
-	// ft_printf("%.5c\n", 'a');
-	// ft_printf("%7.3c\n", 'a');
-	// ft_printf("%0c\n", 'a');
+	// printf("%.c\n", 'a');
+	// printf("%.5c\n", 'a');
+	// printf("%7.3c\n", 'a');
+	// printf("%0c\n", 'a');
 	// printf("%#c", 'a');
 	// printf("% c", 'a');
 	// printf("%+c", 'a');
@@ -397,19 +397,19 @@ int main()
 	// printf("[%0p]\n", ptr);//undefined behavior warning: flag '0' with 'p'
 	// printf("[% p]\n", ptr);//undefined behavior warning: flag ' ' with 'p'
 
-	printf("-----------------------\n");
-	char *ptr = "aaa";
-	char *void_ptr = "ccc";
+	// printf("-----------------------\n");
+	// long long ptr = 2000000;
+	// long long void_ptr = 451;
 
-	ft_printf("[%p]\n", ptr);
-	ft_printf("[%p]\n", void_ptr);
+	// ft_printf("[%p]\n", &ptr);
+	// ft_printf("[%p]\n", &void_ptr);
 	// ft_printf("[%p]\n", NULL);
-	ft_printf("[%5p]\n", ptr);
-	ft_printf("[%10p]\n", ptr);
-	ft_printf("[%15p]\n", ptr);
-	ft_printf("[%-15p]\n", ptr);
-	ft_printf("[%-p]\n", ptr);
-	ft_printf("[%*p]\n", 15, ptr);
-	ft_printf("[%*p]\n", -15, ptr);
+	// ft_printf("[%5p]\n", &ptr);
+	// ft_printf("[%10p]\n", &ptr);
+	// ft_printf("[%15p]\n", &ptr);
+	// ft_printf("[%-15p]\n", &ptr);
+	// ft_printf("[%-p]\n", &ptr);
+	// ft_printf("[%*p]\n", 15, &ptr);
+	// ft_printf("[%*p]\n", -15, &ptr);
 
 }

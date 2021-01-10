@@ -30,6 +30,6 @@ void	ft_print_check(va_list ap, t_fopt *fopt)
 		ft_print_x(ap, fopt);
 	else if (fopt->type == 'X')
 		ft_print_bx(ap, fopt);
-	// else
-	// 	ft_print_per(ap, fopt);
+	else
+		ft_print_per(fopt);
 }
