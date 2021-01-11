@@ -25,6 +25,9 @@
 
 int main()
 {	
+	ft_printf("[%-8.s]\n", NULL);
+	printf("[%-8.s]\n", NULL);
+	
 	// %c
 	// printf("[%c]\n", 'a');
 	// printf("[%-c]\n", 'a');

@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 20:52:59 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/11 13:54:43 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/11 22:51:26 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,10 @@ static void	ft_precision(va_list ap, char **str, t_fopt *fopt)
 	{
 		fopt->nprec = va_arg(ap, int);
 		if (fopt->nprec < 0)
+		{
+			fopt->dot = 0;
 			fopt->nprec = 0;
+		}
 		(*str)++;
 	}
 	while (**str >= '0' && **str <= '9')

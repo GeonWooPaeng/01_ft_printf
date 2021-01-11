@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 18:00:11 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/11 17:54:08 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/11 21:49:17 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	ft_plen(long long num)
 	int cnt;
 
 	cnt = 0;
+	if (num == 0)
+		return (1);
 	while (num > 0)
 	{
 		num /= 16;

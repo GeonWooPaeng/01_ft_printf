@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 21:50:52 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/11 18:07:15 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/11 21:42:31 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	ft_snspace(t_fopt *fopt, char *str, int *lprint, int *slen)
 	int len;
 
 	idx = 0;
-	if (!str || (fopt->dot && fopt->nprec < 1) || fopt->fzero)
+	if (!str || fopt->fzero)
 		return ;
 	if (!fopt->fzero && fopt->dot && fopt->nprec > 0 && fopt->nprec < *slen)
 		len = fopt->nprec;
@@ -47,7 +47,7 @@ static void	ft_sspace(t_fopt *fopt, int *lprint, int *slen)
 {
 	int space;
 
-	if (fopt->fzero && !fopt->dot && fopt->nprec < 1 && fopt->fminus)
+	if (fopt->fzero && !fopt->dot && fopt->nprec < 1 && !fopt->fminus)
 		return ;
 	if (fopt->nprec > 0 && fopt->width > fopt->nprec)
 		space = fopt->width - fopt->nprec;
