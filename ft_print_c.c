@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 16:56:39 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/11 14:11:44 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/11 17:48:31 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ static void	ft_cnspace(va_list ap, int *lprint)
 	char c;
 
 	c = va_arg(ap, int);
-	if (c != '\0')
-		ft_putchar(c, lprint);
+	ft_putchar(c, lprint);
 }
 
 static void	ft_cspace(t_fopt *fopt, int *lprint)

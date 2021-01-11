@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 21:50:52 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/11 17:11:04 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/11 18:07:15 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,17 @@ static void	ft_sspace(t_fopt *fopt, int *lprint, int *slen)
 		ft_putchar(' ', lprint);
 }
 
+static void ft_szero(t_fopt *fopt, int *slen, int *lprint)
+{
+	int zlen;
+
+	zlen = 0;
+	if (fopt->fzero && !fopt->dot && fopt->nprec < 1)
+		zlen = fopt->width - *slen;
+	while (zlen-- > 0)
+		ft_putchar('0', lprint);
+}
+
 void		ft_print_s(va_list ap, t_fopt *fopt, int *lprint)
 {
 	char	*str;
@@ -67,6 +78,7 @@ void		ft_print_s(va_list ap, t_fopt *fopt, int *lprint)
 		str = "(null)";
 	slen = ft_strlen(str);
 	(fopt->fminus) ? 0 : ft_sspace(fopt, lprint, &slen);
+	ft_szero(fopt, &slen, lprint);
 	ft_snspace(fopt, str, lprint, &slen);
 	fopt->fminus = fopt->fminus ? 0 : 1;
 	(fopt->fminus) ? 0 : ft_sspace(fopt, lprint, &slen);

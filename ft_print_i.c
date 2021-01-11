@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 14:37:29 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/11 15:23:11 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/11 17:38:17 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	ft_ispace(t_fopt *fopt, long long num, int *nlen, int *lprint)
 		ft_putchar(' ', lprint);
 }
 
-static void	ft_izero(t_fopt *fopt, long long num, int *nlen, int *lprint)
+static void	ft_izero(t_fopt *fopt, int *nlen, int *lprint)
 {
 	int zlen;
 
@@ -62,7 +62,6 @@ static void	ft_izero(t_fopt *fopt, long long num, int *nlen, int *lprint)
 		zlen = fopt->width - *nlen;
 	else
 		zlen = fopt->nprec - *nlen;
-	zlen = num < 0 ? zlen - 1 : zlen;
 	while (zlen-- > 0)
 		ft_putchar('0', lprint);
 }
@@ -76,7 +75,7 @@ void		ft_print_i(va_list ap, t_fopt *fopt, int *lprint)
 	nlen = (num < 0) ? ft_ilen(-num, fopt) : ft_ilen(num, fopt);
 	(fopt->fminus) ? 0 : ft_ispace(fopt, num, &nlen, lprint);
 	num < 0 ? ft_putchar('-', lprint) : 0;
-	ft_izero(fopt, num, &nlen, lprint);
+	ft_izero(fopt, &nlen, lprint);
 	num < 0 ? ft_inspace(-num, fopt, lprint) : ft_inspace(num, fopt, lprint);
 	fopt->fminus = (fopt->fminus) ? 0 : 1;
 	(fopt->fminus) ? 0 : ft_ispace(fopt, num, &nlen, lprint);
