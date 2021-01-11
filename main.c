@@ -24,8 +24,7 @@
 // }
 
 int main()
-{
-	
+{	
 	// %c
 	// printf("[%c]\n", 'a');
 	// printf("[%-c]\n", 'a');
@@ -37,15 +36,15 @@ int main()
 	// printf("[%*c]\n", 5, 'a');
 	// printf("[%*c]\n", -5, 'a');
 
-	ft_printf("[%c]\n", 'a');
-	ft_printf("[%-c]\n", 'a');
-	ft_printf("[%c]\n", '\0');
-	ft_printf("[%5c]\n", '\0');
-	ft_printf("[%-5c]\n", '\0');
-	ft_printf("[%5c]\n", 'a');
-	ft_printf("[%-5c]\n", 'a');
-	ft_printf("[%*c]\n", 5, 'a');
-	ft_printf("[%*c]\n", -5, 'a');
+	// ft_printf("[%c]\n", 'a');
+	// ft_printf("[%-c]\n", 'a');
+	// ft_printf("[%c]\n", '\0');
+	// ft_printf("[%5c]\n", '\0');
+	// ft_printf("[%-5c]\n", '\0');
+	// ft_printf("[%5c]\n", 'a');
+	// ft_printf("[%-5c]\n", 'a');
+	// ft_printf("[%*c]\n", 5, 'a');
+	// ft_printf("[%*c]\n", -5, 'a');
 	
 	// printf("%.c\n", 'a');
 	// printf("%.5c\n", 'a');
@@ -56,47 +55,47 @@ int main()
 	// printf("%+c", 'a');
 
 	// %s
-	// printf("[%s]\n", "abcde");
-	// printf("[%s]\n", "");
-	// // ft_printf("%s\n", NULL);
-	// printf("[%-s]\n", "abcde");
-	// printf("[%3s]\n", "abcde");
-	// printf("[%-3s]\n", "abcde");
-	// printf("[%7s]\n", "abcde");
-	// printf("[%-7s]\n", "abcde");
-	// printf("[%*s]\n", 7, "abcde");
-	// printf("[%*s]\n", 0, "abcde");
-	// printf("[%*s]\n", -7, "abcde");
-	// printf("[%.0s]\n", "abcde");
-	// printf("[%.s]\n", "abcde");
-	// printf("[%.3s]\n", "abcde");
-	// printf("[%.7s]\n", "abcde");
-	// printf("[%3.7s]\n", "abcde");
-	// printf("[%7.3s]\n", "abcde");
-	// printf("[%7.9s]\n", "abcde");
+	printf("[%s]\n", "abcde");
+	printf("[%s]\n", "");
+	// ft_printf("%s\n", NULL);
+	printf("[%-s]\n", "abcde");
+	printf("[%3s]\n", "abcde");
+	printf("[%-3s]\n", "abcde");
+	printf("[%7s]\n", "abcde");
+	printf("[%-7s]\n", "abcde");
+	printf("[%*s]\n", 7, "abcde");
+	printf("[%*s]\n", 0, "abcde");
+	printf("[%*s]\n", -7, "abcde");
+	printf("[%.0s]\n", "abcde");
+	printf("[%.s]\n", "abcde");
+	printf("[%.3s]\n", "abcde");
+	printf("[%.7s]\n", "abcde");
+	printf("[%3.7s]\n", "abcde");
+	printf("[%7.3s]\n", "abcde");
+	printf("[%7.9s]\n", "abcde");
 	// // ft_printf("%7.3s\n", NULL);
 
-	// printf("-----------------\n");
+	printf("-----------------\n");
 
-	// ft_printf("[%s]\n", "abcde");
-	// ft_printf("[%s]\n", "");
-	// ft_printf("[%s]\n", NULL);
-	// ft_printf("[%-s]\n", "abcde");
-	// ft_printf("[%3s]\n", "abcde");
-	// ft_printf("[%-3s]\n", "abcde");
-	// ft_printf("[%7s]\n", "abcde");
-	// ft_printf("[%-7s]\n", "abcde");
-	// ft_printf("[%*s]\n", 7, "abcde");
-	// ft_printf("[%*s]\n", 0, "abcde");
-	// ft_printf("[%*s]\n", -7, "abcde");
-	// ft_printf("[%.0s]\n", "abcde");
-	// ft_printf("[%.s]\n", "abcde");
-	// ft_printf("[%.3s]\n", "abcde");
-	// ft_printf("[%.7s]\n", "abcde");
-	// ft_printf("[%3.7s]\n", "abcde");
-	// ft_printf("[%7.3s]\n", "abcde");
-	// ft_printf("[%7.9s]\n", "abcde");
-	// ft_printf("[%7.3s]\n", NULL);
+	ft_printf("[%s]\n", "abcde");
+	ft_printf("[%s]\n", "");
+	ft_printf("[%s]\n", NULL);
+	ft_printf("[%-s]\n", "abcde");
+	ft_printf("[%3s]\n", "abcde");
+	ft_printf("[%-3s]\n", "abcde");
+	ft_printf("[%7s]\n", "abcde");
+	ft_printf("[%-7s]\n", "abcde");
+	ft_printf("[%*s]\n", 7, "abcde");
+	ft_printf("[%*s]\n", 0, "abcde");
+	ft_printf("[%*s]\n", -7, "abcde");
+	ft_printf("[%.0s]\n", "abcde");
+	ft_printf("[%.s]\n", "abcde");
+	ft_printf("[%.3s]\n", "abcde");
+	ft_printf("[%.7s]\n", "abcde");
+	ft_printf("[%3.7s]\n", "abcde");
+	ft_printf("[%7.3s]\n", "abcde");
+	ft_printf("[%7.9s]\n", "abcde");
+	ft_printf("[%7.3s]\n", NULL);
 
 	// printf("%.-1s", "abcde");
 	// printf("%.*s", -1, "abcde");

@@ -12,3 +12,6 @@ https://m.blog.naver.com/ruvendix/220891854070
 
 - 출력 예외 확인 github
 https://github.com/365kim/42_cursus/tree/master/2_ft_printf/examples
+
+- 테스터기
+https://yeosong1.github.io/ft_printf

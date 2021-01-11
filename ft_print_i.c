@@ -6,19 +6,19 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 14:37:29 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/09 17:48:20 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/11 15:23:11 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_inspace(long long num, t_fopt *fopt)
+static void	ft_inspace(long long num, t_fopt *fopt, int *lprint)
 {
 	if (num == 0 && fopt->dot && fopt->nprec < 1)
 		return ;
 	if (num > 9)
-		ft_inspace(num / 10, fopt);
-	ft_putchar(num % 10 + '0', fopt);
+		ft_inspace(num / 10, fopt, lprint);
+	ft_putchar(num % 10 + '0', lprint);
 }
 
 static int	ft_ilen(long long num, t_fopt *fopt)
@@ -38,23 +38,23 @@ static int	ft_ilen(long long num, t_fopt *fopt)
 	return (cnt);
 }
 
-static void	ft_ispace(t_fopt *fopt, int num, int *nlen)
+static void	ft_ispace(t_fopt *fopt, long long num, int *nlen, int *lprint)
 {
 	int space;
 
 	space = 0;
-	if (fopt->dot && !fopt->fzero && fopt->nprec > *nlen) //zero가 있는 곳
+	if (fopt->nprec > *nlen)
 		space = fopt->width - fopt->nprec;
 	else
 		space = fopt->width - *nlen;
-	space = num < 0 ? space - 1: space;
+	space = (num < 0) ? space - 1 : space;
 	if (fopt->fzero && !fopt->dot && fopt->nprec < 1)
 		space = 0;
 	while (space-- > 0)
-		ft_putchar(' ', fopt);
+		ft_putchar(' ', lprint);
 }
 
-static void	ft_izero(t_fopt *fopt, int *nlen)
+static void	ft_izero(t_fopt *fopt, long long num, int *nlen, int *lprint)
 {
 	int zlen;
 
@@ -62,21 +62,22 @@ static void	ft_izero(t_fopt *fopt, int *nlen)
 		zlen = fopt->width - *nlen;
 	else
 		zlen = fopt->nprec - *nlen;
+	zlen = num < 0 ? zlen - 1 : zlen;
 	while (zlen-- > 0)
-		ft_putchar('0', fopt);
+		ft_putchar('0', lprint);
 }
 
-void		ft_print_i(va_list ap, t_fopt *fopt)
+void		ft_print_i(va_list ap, t_fopt *fopt, int *lprint)
 {
-	int num;
+	long long num;
 	int nlen;
 
 	num = va_arg(ap, int);
 	nlen = (num < 0) ? ft_ilen(-num, fopt) : ft_ilen(num, fopt);
-	(fopt->fminus) ? 0 : ft_ispace(fopt, num, &nlen);
-	num < 0 ? ft_putchar('-', fopt) : 0;
-	ft_izero(fopt, &nlen);
-	num < 0 ? ft_inspace(-num, fopt) : ft_inspace(num, fopt);
+	(fopt->fminus) ? 0 : ft_ispace(fopt, num, &nlen, lprint);
+	num < 0 ? ft_putchar('-', lprint) : 0;
+	ft_izero(fopt, num, &nlen, lprint);
+	num < 0 ? ft_inspace(-num, fopt, lprint) : ft_inspace(num, fopt, lprint);
 	fopt->fminus = (fopt->fminus) ? 0 : 1;
-	(fopt->fminus) ? 0 : ft_ispace(fopt, num, &nlen);
+	(fopt->fminus) ? 0 : ft_ispace(fopt, num, &nlen, lprint);
 }

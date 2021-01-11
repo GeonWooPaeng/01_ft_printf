@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:50:21 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/09 17:46:05 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/11 14:05:45 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,21 @@ static int	ft_bxlen(t_fopt *fopt, unsigned int num)
 	return (cnt);
 }
 
-static void	ft_bxspace(t_fopt *fopt, int *nlen)
+static void	ft_bxspace(t_fopt *fopt, int *nlen, int *lprint)
 {
 	int space;
 
-	if (!fopt->fzero && fopt->dot && fopt->nprec > *nlen)
+	if (fopt->nprec > *nlen)
 		space = fopt->width - fopt->nprec;
 	else
 		space = fopt->width - *nlen;
 	if (fopt->fzero && !fopt->dot && fopt->nprec < 1)
 		space = 0;
 	while (space-- > 0)
-		ft_putchar(' ', fopt);
+		ft_putchar(' ', lprint);
 }
 
-static void	ft_bxzero(t_fopt *fopt, int *nlen)
+static void	ft_bxzero(t_fopt *fopt, int *nlen, int *lprint)
 {
 	int zlen;
 
@@ -52,10 +52,10 @@ static void	ft_bxzero(t_fopt *fopt, int *nlen)
 	else
 		zlen = fopt->nprec - *nlen;
 	while (zlen-- > 0)
-		ft_putchar('0', fopt);
+		ft_putchar('0', lprint);
 }
 
-static void	ft_bxnspace(t_fopt *fopt, unsigned int num, int *nlen)
+static void	ft_bxnspace(t_fopt *fopt, unsigned int num, int *nlen, int *lprint)
 {
 	char *base;
 
@@ -63,20 +63,20 @@ static void	ft_bxnspace(t_fopt *fopt, unsigned int num, int *nlen)
 	if (num == 0 && fopt->dot && fopt->nprec < 1)
 		return ;
 	if (num > 15)
-		ft_bxnspace(fopt, num / 16, nlen);
-	ft_putchar(base[num % 16], fopt);
+		ft_bxnspace(fopt, num / 16, nlen, lprint);
+	ft_putchar(base[num % 16], lprint);
 }
 
-void		ft_print_bx(va_list ap, t_fopt *fopt)
+void		ft_print_bx(va_list ap, t_fopt *fopt, int *lprint)
 {
 	unsigned int	num;
 	int				nlen;
 
 	num = va_arg(ap, unsigned int);
 	nlen = ft_bxlen(fopt, num);
-	fopt->fminus ? 0 : ft_bxspace(fopt, &nlen);
-	ft_bxzero(fopt, &nlen);
-	ft_bxnspace(fopt, num, &nlen);
+	fopt->fminus ? 0 : ft_bxspace(fopt, &nlen, lprint);
+	ft_bxzero(fopt, &nlen, lprint);
+	ft_bxnspace(fopt, num, &nlen, lprint);
 	fopt->fminus = fopt->fminus ? 0 : 1;
-	fopt->fminus ? 0 : ft_bxspace(fopt, &nlen);
+	fopt->fminus ? 0 : ft_bxspace(fopt, &nlen, lprint);
 }

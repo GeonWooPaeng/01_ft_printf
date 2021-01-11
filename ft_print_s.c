@@ -6,50 +6,68 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 21:50:52 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/10 14:46:06 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/11 17:11:04 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_snspace(t_fopt *fopt, char *str)
+static int ft_strlen(char *str)
+{
+	int cnt;
+
+	cnt = 0;
+	while (str[cnt])
+	{
+		cnt++;
+	}
+	return (cnt);
+}
+
+static void	ft_snspace(t_fopt *fopt, char *str, int *lprint, int *slen)
 {
 	int idx;
+	int len;
 
 	idx = 0;
-	if (!str || (fopt->dot && fopt->nprec < 1))
+	if (!str || (fopt->dot && fopt->nprec < 1) || fopt->fzero)
 		return ;
-	if (fopt->nprec)
-	{
-		while (str[idx] && idx < fopt->nprec)
-			ft_putchar(str[idx++], fopt);
-	}
+	if (!fopt->fzero && fopt->dot && fopt->nprec > 0 && fopt->nprec < *slen)
+		len = fopt->nprec;
 	else
+		len = *slen;
+	while (str[idx] && idx < len)
 	{
-		while (str[idx])
-			ft_putchar(str[idx++], fopt);
+		ft_putchar(str[idx], lprint);
+		idx++;
 	}
 }
 
-static void	ft_sspace(t_fopt *fopt, char *str)
+static void	ft_sspace(t_fopt *fopt, int *lprint, int *slen)
 {
+	int space;
+
+	if (fopt->fzero && !fopt->dot && fopt->nprec < 1 && fopt->fminus)
+		return ;
 	if (fopt->nprec > 0 && fopt->width > fopt->nprec)
-		fopt->width = fopt->width - fopt->nprec;
+		space = fopt->width - fopt->nprec;
 	else
-		fopt->width = fopt->width - ft_strlen(str);
-	while (fopt->width-- > 0)
-		ft_putchar(' ', fopt);
+		space = fopt->width - *slen;
+	while (space-- > 0)
+		ft_putchar(' ', lprint);
 }
 
-void		ft_print_s(va_list ap, t_fopt *fopt)
+void		ft_print_s(va_list ap, t_fopt *fopt, int *lprint)
 {
-	char *str;
+	char	*str;
+	int		slen;
 
 	str = va_arg(ap, char *);
 	if (str == NULL)
 		str = "(null)";
-	(fopt->fminus) ? 0 : ft_sspace(fopt, str);
-	ft_snspace(fopt, str);
+	slen = ft_strlen(str);
+	(fopt->fminus) ? 0 : ft_sspace(fopt, lprint, &slen);
+	ft_snspace(fopt, str, lprint, &slen);
 	fopt->fminus = fopt->fminus ? 0 : 1;
-	(fopt->fminus) ? 0 : ft_sspace(fopt, str);
+	(fopt->fminus) ? 0 : ft_sspace(fopt, lprint, &slen);
 }

@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 20:52:59 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/09 17:45:46 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/11 13:54:43 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static void	ft_flag(char **str, t_fopt *fopt)
 			fopt->fminus = 1;
 		else if (**str == '0')
 			fopt->fzero = 1;
-		(*str)++; 
+		(*str)++;
 	}
-	if (fopt->fminus && fopt->fzero) //같이 있으면 '-'만 실행
+	if (fopt->fminus && fopt->fzero)
 		fopt->fzero = 0;
 }
 
@@ -32,14 +32,15 @@ static void	ft_width(va_list ap, char **str, t_fopt *fopt)
 	{
 		fopt->width = va_arg(ap, int);
 		if (fopt->width < 0)
-		{//음수 이면 좌측 정렬
-			fopt->fzero = 0; // 0은 왼쪽에만 넣어주기 때문 
+		{
+			if (fopt->fzero == 1)
+				fopt->fzero = 0;
 			fopt->fminus = 1;
 			fopt->width *= -1;
 		}
 		(*str)++;
 	}
-	while (**str >= '0' && **str <= '9' )
+	while (**str >= '0' && **str <= '9')
 	{
 		fopt->width = (fopt->width * 10) + (**str - '0');
 		(*str)++;
@@ -69,21 +70,19 @@ static void	ft_precision(va_list ap, char **str, t_fopt *fopt)
 
 static void	ft_type(char **str, t_fopt *fopt)
 {
-	if (**str == 'c' || **str == 's' || **str == 'p' 
-	|| **str == 'd' || **str == 'i' || **str == 'u' 
+	if (**str == 'c' || **str == 's' || **str == 'p'
+	|| **str == 'd' || **str == 'i' || **str == 'u'
 	|| **str == 'x' || **str == 'X' || **str == '%')
 		fopt->type = **str;
 	(*str)++;
 }
 
-void		ft_option_cal(va_list ap, char **str, t_fopt *fopt)
+void		ft_option_cal(va_list ap, char **str, t_fopt *fopt, int *lprint)
 {
 	++(*str);
-	if (**str == ' ')
-		(*str)++;
 	ft_flag(str, fopt);
 	ft_width(ap, str, fopt);
 	ft_precision(ap, str, fopt);
 	ft_type(str, fopt);
-	ft_print_check(ap, fopt);
+	ft_print_check(ap, fopt, lprint);
 }
