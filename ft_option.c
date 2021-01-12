@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 20:52:59 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/12 13:32:16 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/12 17:23:31 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ static void	ft_type(char **str, t_fopt *fopt)
 	|| **str == 'd' || **str == 'i' || **str == 'u'
 	|| **str == 'x' || **str == 'X' || **str == '%')
 		fopt->type = **str;
-	(*str)++;
 }
 
 void		ft_opt_cal(va_list ap, char **str, t_fopt *fopt, int *lprint)
@@ -87,5 +86,6 @@ void		ft_opt_cal(va_list ap, char **str, t_fopt *fopt, int *lprint)
 	ft_width(ap, str, fopt);
 	ft_precision(ap, str, fopt);
 	ft_type(str, fopt);
+	fopt->type == 0 ? 0 : (*str)++;
 	ft_print_check(ap, fopt, lprint);
 }
