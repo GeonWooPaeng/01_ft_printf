@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 18:00:11 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/12 14:27:30 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/12 15:31:55 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	ft_pnspace(t_fopt *fopt, long long num, int *nlen, int *lprint)
 	ft_putchar(base[num % 16], lprint);
 }
 
-static void ft_pzero(t_fopt *fopt, int *nlen, int *lprint)
+static void	ft_pzero(t_fopt *fopt, int *nlen, int *lprint)
 {
 	int zlen;
 
@@ -70,7 +70,8 @@ void		ft_print_p(va_list ap, t_fopt *fopt, int *lprint)
 	ft_putchar('0', lprint);
 	ft_putchar('x', lprint);
 	ft_pzero(fopt, &nlen, lprint);
-	num == 0 ? 0 : ft_pnspace(fopt, num, &nlen, lprint);
+	if (num != 0 || !fopt->dot || fopt->nprec > 0)
+		ft_pnspace(fopt, num, &nlen, lprint);
 	fopt->fminus = fopt->fminus ? 0 : 1;
 	fopt->fminus ? 0 : ft_pspace(fopt, &nlen, lprint);
 }

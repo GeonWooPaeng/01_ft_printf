@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:17:10 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/12 13:32:23 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/12 15:30:56 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_printf(const char *str, ...)
 	va_list	ap;
 	t_fopt	fopt;
 	char	*strptr;
-	int 	lprint;
+	int		lprint;
 
 	va_start(ap, str);
 	strptr = (char *)str;

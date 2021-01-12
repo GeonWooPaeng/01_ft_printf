@@ -6,18 +6,18 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 21:50:52 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/12 14:53:45 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/12 15:32:24 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int ft_strlen(t_fopt *fopt, char *str)
+static int	ft_strlen(t_fopt *fopt, char *str)
 {
 	int cnt;
 
 	cnt = 0;
-	if (!str || (!fopt->dot && fopt->nprec < 1))
+	if (!str || (fopt->dot && fopt->nprec < 1))
 		return (0);
 	while (str[cnt])
 	{
@@ -59,7 +59,7 @@ static void	ft_sspace(t_fopt *fopt, int *lprint, int *slen)
 		ft_putchar(' ', lprint);
 }
 
-static void ft_szero(t_fopt *fopt, int *slen, int *lprint)
+static void	ft_szero(t_fopt *fopt, int *slen, int *lprint)
 {
 	int zlen;
 

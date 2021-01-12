@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 17:12:01 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/11 21:26:54 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/12 15:31:31 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	ft_dzero(t_fopt *fopt, long long num, int *nlen, int *lprint)
 	{
 		zlen = fopt->width - *nlen;
 		zlen = num < 0 ? zlen - 1 : zlen;
-	} 
+	}
 	else
 		zlen = fopt->nprec - *nlen;
 	while (zlen-- > 0)
@@ -71,8 +71,8 @@ static void	ft_dzero(t_fopt *fopt, long long num, int *nlen, int *lprint)
 
 void		ft_print_d(va_list ap, t_fopt *fopt, int *lprint)
 {
-	long long num;
-	int nlen;
+	long long	num;
+	int			nlen;
 
 	num = va_arg(ap, int);
 	nlen = (num < 0) ? ft_dlen(-num, fopt) : ft_dlen(num, fopt);

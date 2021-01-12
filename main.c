@@ -25,7 +25,7 @@
 
 int main()
 {	
-	
+	ft_printf("[%05%]\n");
 	// %c
 	// printf("[%c]\n", 'a');
 	// printf("[%-c]\n", 'a');
@@ -94,10 +94,10 @@ int main()
 	// ft_printf("[%.3s]\n", "abcde");
 	// ft_printf("[%.7s]\n", "abcde");
 	// ft_printf("[%3.7s]\n", "abcde");
-	ft_printf("[%7.3s]\n", "yolo");
-	ft_printf("[%7.9s]\n", "yolo");
-	printf("[%7.3s]\n", "yolo");
-	printf("[%7.9s]\n", "yolo");
+	// ft_printf("[%-10.8s]\n", NULL);
+	// ft_printf("[%-3.s]\n", NULL);
+	// printf("[%7.3s]\n", "yolo");
+	// printf("[%7.9s]\n", "yolo");
 	// ft_printf("[%7.3s]\n", NULL);
 
 	// printf("%.-1s", "abcde");
