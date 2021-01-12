@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:17:10 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/11 14:11:05 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/12 13:32:23 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_printf(const char *str, ...)
 	{
 		if (*strptr == '%')
 		{
-			ft_option_cal(ap, &strptr, &fopt, &lprint);
+			ft_opt_cal(ap, &strptr, &fopt, &lprint);
 			ft_init_foption(&fopt);
 		}
 		else

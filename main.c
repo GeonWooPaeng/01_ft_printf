@@ -25,8 +25,6 @@
 
 int main()
 {	
-	ft_printf("[%-8.s]\n", NULL);
-	printf("[%-8.s]\n", NULL);
 	
 	// %c
 	// printf("[%c]\n", 'a');
@@ -96,8 +94,10 @@ int main()
 	// ft_printf("[%.3s]\n", "abcde");
 	// ft_printf("[%.7s]\n", "abcde");
 	// ft_printf("[%3.7s]\n", "abcde");
-	// ft_printf("[%7.3s]\n", "abcde");
-	// ft_printf("[%7.9s]\n", "abcde");
+	ft_printf("[%7.3s]\n", "yolo");
+	ft_printf("[%7.9s]\n", "yolo");
+	printf("[%7.3s]\n", "yolo");
+	printf("[%7.9s]\n", "yolo");
 	// ft_printf("[%7.3s]\n", NULL);
 
 	// printf("%.-1s", "abcde");
@@ -400,10 +400,10 @@ int main()
 	// printf("[% p]\n", ptr);//undefined behavior warning: flag ' ' with 'p'
 
 	// printf("-----------------------\n");
-	// long long ptr = 2000000;
+	// long long ptr = 0;
 	// long long void_ptr = 451;
 
-	// ft_printf("[%p]\n", &ptr);
+	// ft_printf("[%p]\n", NULL);
 	// ft_printf("[%p]\n", &void_ptr);
 	// ft_printf("[%p]\n", NULL);
 	// ft_printf("[%5p]\n", &ptr);

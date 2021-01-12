@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:17:31 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/11 17:00:33 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/12 13:32:09 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct	s_format_opt
 }				t_fopt;
 
 int				ft_printf(const char *str, ...);
-void			ft_option_cal(va_list ap, char **str, t_fopt *fopt, int *lprint);
+void			ft_opt_cal(va_list ap, char **str, t_fopt *fopt, int *lprint);
 void			ft_print_check(va_list ap, t_fopt *fopt, int *lprint);
 
 void			ft_putchar(char c, int *lprint);

@@ -6,7 +6,7 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 20:52:59 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/11 22:51:26 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/12 13:32:16 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static void	ft_type(char **str, t_fopt *fopt)
 	(*str)++;
 }
 
-void		ft_option_cal(va_list ap, char **str, t_fopt *fopt, int *lprint)
+void		ft_opt_cal(va_list ap, char **str, t_fopt *fopt, int *lprint)
 {
 	++(*str);
 	ft_flag(str, fopt);
