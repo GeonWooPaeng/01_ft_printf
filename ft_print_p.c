@@ -6,17 +6,19 @@
 /*   By: gpaeng <gpaeng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 18:00:11 by gpaeng            #+#    #+#             */
-/*   Updated: 2021/01/12 15:31:55 by gpaeng           ###   ########.fr       */
+/*   Updated: 2021/01/12 15:49:58 by gpaeng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_plen(long long num)
+static int	ft_plen(t_fopt *fopt, long long num)
 {
 	int cnt;
 
 	cnt = 0;
+	if (num == 0 && fopt->dot && fopt->nprec < 1)
+		return (0);
 	if (num == 0)
 		return (1);
 	while (num > 0)
@@ -65,7 +67,7 @@ void		ft_print_p(va_list ap, t_fopt *fopt, int *lprint)
 	int			nlen;
 
 	num = va_arg(ap, long long);
-	nlen = ft_plen(num);
+	nlen = ft_plen(fopt, num);
 	fopt->fminus ? 0 : ft_pspace(fopt, &nlen, lprint);
 	ft_putchar('0', lprint);
 	ft_putchar('x', lprint);
