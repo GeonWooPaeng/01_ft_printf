@@ -25,6 +25,8 @@
 
 int main()
 {
+	ft_printf("[%04.3%]\n");
+	ft_printf("[%04%]\n");
 	// %c
 	// printf("[%c]\n", 'a');
 	// printf("[%-c]\n", 'a');
